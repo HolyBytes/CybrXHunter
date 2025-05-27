@@ -69,33 +69,38 @@ def check_dependencies():
 # Fungsi untuk menampilkan disclaimer
 def show_disclaimer():
     disclaimer = f"""
-{Fore.RED}[!] PERINGATAN DAN DISCLAIMER{Style.RESET_ALL}
+{Fore.RED}⚠️  PENTING BANGET NIH! BACA DULU YUK! ⚠️{Style.RESET_ALL}
     
-1. Tools ini hanya untuk tujuan legal seperti penetration testing dengan izin tertulis.
-2. Penggunaan untuk aktivitas ilegal adalah tanggung jawab pengguna sepenuhnya.
-3. Penulis tidak bertanggung jawab atas penyalahgunaan tools ini.
-4. Pastikan Anda memiliki izin sebelum menguji sistem apapun.
+🚨 {Fore.YELLOW}Hei sobat hacker! Sebelum pake tools ini, ada yang perlu kamu tahu:{Style.RESET_ALL}
 
-{Fore.YELLOW}Dengan menggunakan tools ini, Anda menyetujui bahwa Anda bertanggung jawab penuh atas tindakan Anda.{Style.RESET_ALL}
+1. 🎯 Tools ini cuma buat belajar ethical hacking aja ya!
+2. 📋 Kalau mau test sistem orang, harus izin dulu (ada surat ijinnya)
+3. 🙅‍♂️ Kalau dipakai buat yang nggak-nggak, tanggung jawab sendiri ya!
+4. ✅ Pastikan kamu udah dapet izin sebelum nyoba-nyoba
+5. 🤝 Jadi ethical hacker yang baik, bukan script kiddie!
+
+{Fore.GREEN}💡 Inget ya: "With great power comes great responsibility!" 💡{Style.RESET_ALL}
+
+{Fore.YELLOW}🤔 Kamu udah paham dan siap jadi ethical hacker yang bertanggung jawab?{Style.RESET_ALL}
 """
     print(disclaimer)
     
-    if not confirm_action("Apakah Anda setuju dan ingin melanjutkan?"):
-        print(f"{Fore.RED}[!] Dibatalkan oleh pengguna.{Style.RESET_ALL}")
+    if not confirm_action("Setuju sama aturan di atas? Lanjut yuk!"):
+        print(f"{Fore.RED}❌ Oke deh, mungkin lain kali ya! Stay safe! 🙋‍♂️{Style.RESET_ALL}")
         sys.exit(0)
 
 # Fungsi konfirmasi aksi
 def confirm_action(prompt):
     while True:
-        response = input(f"{Fore.YELLOW}[?] {prompt} (y/n): {Style.RESET_ALL}").lower()
+        response = input(f"{Fore.YELLOW}❓ {prompt} (y/n): {Style.RESET_ALL}").lower()
         if response == 'y':
-            print(f"{Fore.GREEN}[+] Oke, melanjutkan proses...{Style.RESET_ALL}")
+            print(f"{Fore.GREEN}✅ Siap! Gas terus! 🚀{Style.RESET_ALL}")
             return True
         elif response == 'n':
-            print(f"{Fore.RED}[-] Dibatalkan oleh pengguna.{Style.RESET_ALL}")
+            print(f"{Fore.RED}❌ Oke, dibatalin deh! 😊{Style.RESET_ALL}")
             return False
         else:
-            print(f"{Fore.YELLOW}[!] Masukkan 'y' untuk Ya atau 'n' untuk Tidak{Style.RESET_ALL}")
+            print(f"{Fore.YELLOW}🤷‍♂️ Ketik 'y' buat iya atau 'n' buat nggak ya!{Style.RESET_ALL}")
 
 # Fungsi untuk logging
 def log_action(action, result=""):
@@ -108,10 +113,10 @@ def log_action(action, result=""):
 # Fungsi untuk update tools
 def update_tools():
     if not check_internet():
-        print(f"{Fore.RED}[-] Tidak ada koneksi internet untuk update.{Style.RESET_ALL}")
+        print(f"{Fore.RED}📡 Waduh, nggak ada internet nih! Coba cek koneksi dulu ya! 🌐{Style.RESET_ALL}")
         return
     
-    print(f"{Fore.CYAN}[*] Memeriksa update...{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}🔍 Lagi cek update terbaru... Tunggu sebentar ya! ⏳{Style.RESET_ALL}")
     
     try:
         # Contoh: Cek versi terbaru dari repo GitHub
@@ -119,29 +124,29 @@ def update_tools():
         latest_version = response.json()["tag_name"]
         
         if latest_version != VERSION:
-            print(f"{Fore.GREEN}[+] Versi terbaru {latest_version} tersedia!{Style.RESET_ALL}")
-            if confirm_action("Update ke versi terbaru?"):
+            print(f"{Fore.GREEN}🎉 Wah ada update baru nih! Versi {latest_version} udah keluar! 🆕{Style.RESET_ALL}")
+            if confirm_action("Mau update ke versi terbaru?"):
                 # Proses update bisa ditambahkan di sini
-                print(f"{Fore.GREEN}[+] Tools berhasil diupdate!{Style.RESET_ALL}")
+                print(f"{Fore.GREEN}✅ Yeay! Tools udah terupdate! Mantap jiwa! 🎊{Style.RESET_ALL}")
         else:
-            print(f"{Fore.GREEN}[+] Anda sudah menggunakan versi terbaru.{Style.RESET_ALL}")
+            print(f"{Fore.GREEN}✅ Keren! Kamu udah pake versi terbaru kok! 😎{Style.RESET_ALL}")
     except Exception as e:
-        print(f"{Fore.RED}[-] Gagal memeriksa update: {str(e)}{Style.RESET_ALL}")
+        print(f"{Fore.RED}❌ Waduh, gagal cek update: {str(e)} 😅{Style.RESET_ALL}")
 
 # Fungsi untuk menu utama
 def main_menu():
     while True:
-        print(f"\n{Fore.BLUE}=== MENU UTAMA ==={Style.RESET_ALL}")
-        print("1. Information Gathering")
-        print("2. Sniffing & Spoofing")
-        print("3. Vulnerability Scanner")
-        print("4. Bruteforce Tools")
-        print("5. Web Pentesting")
-        print("6. Remote Access (For Learning Only)")
-        print("7. Pengaturan")
-        print("0. Keluar")
+        print(f"\n{Fore.BLUE}🎯 === MENU UTAMA CYBRXHUNTER === 🎯{Style.RESET_ALL}")
+        print(f"{Fore.CYAN}🕵️  1. Ngumpulin Info Target (Information Gathering){Style.RESET_ALL}")
+        print(f"{Fore.CYAN}🌐 2. Sniffing & Spoofing Network{Style.RESET_ALL}")
+        print(f"{Fore.CYAN}🔍 3. Cari Celah Keamanan (Vulnerability Scanner){Style.RESET_ALL}")
+        print(f"{Fore.CYAN}💥 4. Bruteforce Tools (Password Cracking){Style.RESET_ALL}")
+        print(f"{Fore.CYAN}🌍 5. Web Pentesting{Style.RESET_ALL}")
+        print(f"{Fore.CYAN}🔐 6. Remote Access (Khusus Belajar){Style.RESET_ALL}")
+        print(f"{Fore.CYAN}⚙️  7. Pengaturan{Style.RESET_ALL}")
+        print(f"{Fore.RED}🚪 0. Keluar{Style.RESET_ALL}")
         
-        choice = input(f"{Fore.YELLOW}[?] Pilih menu (0-7): {Style.RESET_ALL}")
+        choice = input(f"{Fore.YELLOW}🎮 Pilih menu favorit kamu (0-7): {Style.RESET_ALL}")
         
         if choice == "1":
             information_gathering_menu()
@@ -158,22 +163,24 @@ def main_menu():
         elif choice == "7":
             settings_menu()
         elif choice == "0":
-            print(f"{Fore.GREEN}[+] Keluar dari CybrXHunter. Hati-hati di luar sana!{Style.RESET_ALL}")
+            print(f"{Fore.GREEN}👋 Makasih udah pake CybrXHunter! Hati-hati di dunia maya ya! 🛡️{Style.RESET_ALL}")
+            print(f"{Fore.MAGENTA}🎊 Jangan lupa follow GitHub kita dan kasih star! 🌟{Style.RESET_ALL}")
+            show_footer()
             sys.exit(0)
         else:
-            print(f"{Fore.RED}[-] Pilihan tidak valid!{Style.RESET_ALL}")
+            print(f"{Fore.RED}❌ Eh, pilihan nggak ada tuh! Coba lagi ya! 😅{Style.RESET_ALL}")
 
 # Fungsi untuk menu Information Gathering
 def information_gathering_menu():
     while True:
-        print(f"\n{Fore.BLUE}=== INFORMATION GATHERING ==={Style.RESET_ALL}")
-        print("1. Nmap - Port Scanning")
-        print("2. Subfinder - Subdomain Enumeration")
-        print("3. Dirb - Directory Bruteforce")
-        print("4. WhatWeb - Teknologi Web Detection")
-        print("5. Kembali ke Menu Utama")
+        print(f"\n{Fore.BLUE}🕵️ === NGUMPULIN INFO TARGET === 🕵️{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}🔍 1. Nmap - Scan Port & Service{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}🌐 2. Subfinder - Cari Subdomain{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}📁 3. Dirb - Cari Directory Hidden{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}🔧 4. WhatWeb - Deteksi Technology Web{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}🔙 5. Balik ke Menu Utama{Style.RESET_ALL}")
         
-        choice = input(f"{Fore.YELLOW}[?] Pilih tool (1-5): {Style.RESET_ALL}")
+        choice = input(f"{Fore.YELLOW}🎯 Pilih tools mana yang mau dipake (1-5): {Style.RESET_ALL}")
         
         if choice == "1":
             run_nmap()
@@ -186,107 +193,120 @@ def information_gathering_menu():
         elif choice == "5":
             break
         else:
-            print(f"{Fore.RED}[-] Pilihan tidak valid!{Style.RESET_ALL}")
+            print(f"{Fore.RED}❌ Pilihan nggak valid nih! Coba lagi deh! 😊{Style.RESET_ALL}")
 
 # Fungsi untuk menjalankan Nmap
 def run_nmap():
-    target = input(f"{Fore.YELLOW}[?] Masukkan target (IP/Domain): {Style.RESET_ALL}")
+    target = input(f"{Fore.YELLOW}🎯 Masukkin target (IP/Domain): {Style.RESET_ALL}")
     if not target:
-        print(f"{Fore.RED}[-] Target tidak boleh kosong!{Style.RESET_ALL}")
+        print(f"{Fore.RED}❌ Eh, targetnya jangan kosong dong! 😅{Style.RESET_ALL}")
         return
     
-    scan_type = input(f"{Fore.YELLOW}[?] Pilih scan type (1. Quick 2. Full 3. Custom): {Style.RESET_ALL}")
+    print(f"\n{Fore.CYAN}🔍 Pilih jenis scan:{Style.RESET_ALL}")
+    print(f"⚡ 1. Quick Scan (Cepat)")
+    print(f"🔥 2. Full Scan (Detail)")
+    print(f"🛠️  3. Custom Scan (Sesuai Keinginan)")
+    
+    scan_type = input(f"{Fore.YELLOW}📝 Pilih jenis scan (1/2/3): {Style.RESET_ALL}")
     
     if scan_type == "1":
         command = f"nmap -T4 -F {target}"
+        print(f"{Fore.GREEN}⚡ Pake quick scan nih! Cepet tapi tetep mantap! 🚀{Style.RESET_ALL}")
     elif scan_type == "2":
         command = f"nmap -T4 -A -v {target}"
+        print(f"{Fore.GREEN}🔥 Full scan activated! Ini bakal detail banget! 💪{Style.RESET_ALL}")
     elif scan_type == "3":
-        options = input(f"{Fore.YELLOW}[?] Masukkan opsi Nmap custom: {Style.RESET_ALL}")
+        options = input(f"{Fore.YELLOW}⚙️ Masukkin opsi Nmap custom kamu: {Style.RESET_ALL}")
         command = f"nmap {options} {target}"
+        print(f"{Fore.GREEN}🛠️ Custom scan sesuai keinginan! Keren! ✨{Style.RESET_ALL}")
     else:
-        print(f"{Fore.RED}[-] Pilihan tidak valid!{Style.RESET_ALL}")
+        print(f"{Fore.RED}❌ Pilihan nggak ada tuh! Balik lagi ya! 😊{Style.RESET_ALL}")
         return
     
-    if confirm_action(f"Jalankan perintah: {command}?"):
+    if confirm_action(f"Jalanin perintah: {command}?"):
         try:
-            print(f"{Fore.CYAN}[*] Menjalankan Nmap...{Style.RESET_ALL}")
+            print(f"{Fore.CYAN}🚀 Nmap lagi jalan... Sabar ya, lagi kerja keras nih! ⏳{Style.RESET_ALL}")
             subprocess.run(command, shell=True, check=True)
+            print(f"{Fore.GREEN}✅ Berhasil! Nmap udah selesai scan {target}! 🎉{Style.RESET_ALL}")
             log_action(f"Nmap scan terhadap {target}", "berhasil")
         except subprocess.CalledProcessError as e:
-            print(f"{Fore.RED}[-] Gagal menjalankan Nmap: {str(e)}{Style.RESET_ALL}")
+            print(f"{Fore.RED}❌ Waduh, Nmap error nih: {str(e)} 😢{Style.RESET_ALL}")
             log_action(f"Nmap scan terhadap {target}", f"gagal: {str(e)}")
 
 # Fungsi untuk menjalankan Subfinder
 def run_subfinder():
-    domain = input(f"{Fore.YELLOW}[?] Masukkan domain target: {Style.RESET_ALL}")
+    domain = input(f"{Fore.YELLOW}🌐 Masukkin domain target: {Style.RESET_ALL}")
     if not domain:
-        print(f"{Fore.RED}[-] Domain tidak boleh kosong!{Style.RESET_ALL}")
+        print(f"{Fore.RED}❌ Domain jangan kosong ya! 😅{Style.RESET_ALL}")
         return
     
     command = f"subfinder -d {domain} -o subfinder_{domain}.txt"
     
-    if confirm_action(f"Jalankan perintah: {command}?"):
+    if confirm_action(f"Jalanin perintah: {command}?"):
         try:
-            print(f"{Fore.CYAN}[*] Menjalankan Subfinder...{Style.RESET_ALL}")
+            print(f"{Fore.CYAN}🔍 Subfinder lagi nyari subdomain... Tunggu sebentar! 🕵️‍♂️{Style.RESET_ALL}")
             subprocess.run(command, shell=True, check=True)
-            print(f"{Fore.GREEN}[+] Hasil disimpan ke subfinder_{domain}.txt{Style.RESET_ALL}")
+            print(f"{Fore.GREEN}✅ Mantap! Hasil disimpan di subfinder_{domain}.txt 📄{Style.RESET_ALL}")
             log_action(f"Subfinder scan terhadap {domain}", "berhasil")
         except subprocess.CalledProcessError as e:
-            print(f"{Fore.RED}[-] Gagal menjalankan Subfinder: {str(e)}{Style.RESET_ALL}")
+            print(f"{Fore.RED}❌ Subfinder error: {str(e)} 😢{Style.RESET_ALL}")
             log_action(f"Subfinder scan terhadap {domain}", f"gagal: {str(e)}")
 
 # Fungsi untuk menjalankan Dirb
 def run_dirb():
-    url = input(f"{Fore.YELLOW}[?] Masukkan URL target (contoh: http://example.com): {Style.RESET_ALL}")
+    url = input(f"{Fore.YELLOW}🌍 Masukkin URL target (contoh: http://example.com): {Style.RESET_ALL}")
     if not url:
-        print(f"{Fore.RED}[-] URL tidak boleh kosong!{Style.RESET_ALL}")
+        print(f"{Fore.RED}❌ URL jangan kosong dong! 😅{Style.RESET_ALL}")
         return
     
-    wordlist = input(f"{Fore.YELLOW}[?] Masukkan path wordlist (kosongkan untuk default): {Style.RESET_ALL}")
+    wordlist = input(f"{Fore.YELLOW}📝 Masukkin path wordlist (kosongkan buat pake default): {Style.RESET_ALL}")
     
     if wordlist:
         command = f"dirb {url} {wordlist}"
+        print(f"{Fore.GREEN}📁 Pake wordlist custom nih! Keren! ✨{Style.RESET_ALL}")
     else:
         command = f"dirb {url}"
+        print(f"{Fore.GREEN}📁 Pake wordlist default! Simple tapi efektif! 👍{Style.RESET_ALL}")
     
-    if confirm_action(f"Jalankan perintah: {command}?"):
+    if confirm_action(f"Jalanin perintah: {command}?"):
         try:
-            print(f"{Fore.CYAN}[*] Menjalankan Dirb...{Style.RESET_ALL}")
+            print(f"{Fore.CYAN}🔍 Dirb lagi nyari directory tersembunyi... Detective mode on! 🕵️{Style.RESET_ALL}")
             subprocess.run(command, shell=True, check=True)
+            print(f"{Fore.GREEN}✅ Selesai! Dirb udah scan {url}! 🎯{Style.RESET_ALL}")
             log_action(f"Dirb scan terhadap {url}", "berhasil")
         except subprocess.CalledProcessError as e:
-            print(f"{Fore.RED}[-] Gagal menjalankan Dirb: {str(e)}{Style.RESET_ALL}")
+            print(f"{Fore.RED}❌ Dirb error: {str(e)} 😢{Style.RESET_ALL}")
             log_action(f"Dirb scan terhadap {url}", f"gagal: {str(e)}")
 
 # Fungsi untuk menjalankan WhatWeb
 def run_whatweb():
-    url = input(f"{Fore.YELLOW}[?] Masukkan URL target (contoh: http://example.com): {Style.RESET_ALL}")
+    url = input(f"{Fore.YELLOW}🌍 Masukkin URL target (contoh: http://example.com): {Style.RESET_ALL}")
     if not url:
-        print(f"{Fore.RED}[-] URL tidak boleh kosong!{Style.RESET_ALL}")
+        print(f"{Fore.RED}❌ URL jangan kosong ya! 😅{Style.RESET_ALL}")
         return
     
     command = f"whatweb {url} -v"
     
-    if confirm_action(f"Jalankan perintah: {command}?"):
+    if confirm_action(f"Jalanin perintah: {command}?"):
         try:
-            print(f"{Fore.CYAN}[*] Menjalankan WhatWeb...{Style.RESET_ALL}")
+            print(f"{Fore.CYAN}🔧 WhatWeb lagi deteksi teknologi web... Tech detective mode! 🔍{Style.RESET_ALL}")
             subprocess.run(command, shell=True, check=True)
+            print(f"{Fore.GREEN}✅ Berhasil! WhatWeb udah scan {url}! 🎉{Style.RESET_ALL}")
             log_action(f"WhatWeb scan terhadap {url}", "berhasil")
         except subprocess.CalledProcessError as e:
-            print(f"{Fore.RED}[-] Gagal menjalankan WhatWeb: {str(e)}{Style.RESET_ALL}")
+            print(f"{Fore.RED}❌ WhatWeb error: {str(e)} 😢{Style.RESET_ALL}")
             log_action(f"WhatWeb scan terhadap {url}", f"gagal: {str(e)}")
 
 # Fungsi untuk menu Sniffing & Spoofing
 def sniffing_spoofing_menu():
     while True:
-        print(f"\n{Fore.BLUE}=== SNIFFING & SPOOFING ==={Style.RESET_ALL}")
-        print("1. Wireshark (GUI)")
-        print("2. Tcpdump")
-        print("3. Ettercap")
-        print("4. Kembali ke Menu Utama")
+        print(f"\n{Fore.BLUE}🌐 === SNIFFING & SPOOFING NETWORK === 🌐{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}🦈 1. Wireshark (GUI) - Packet Analyzer Terbaik{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}📡 2. Tcpdump - Command Line Packet Capture{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}🎭 3. Ettercap - Man in The Middle Attack{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}🔙 4. Balik ke Menu Utama{Style.RESET_ALL}")
         
-        choice = input(f"{Fore.YELLOW}[?] Pilih tool (1-4): {Style.RESET_ALL}")
+        choice = input(f"{Fore.YELLOW}🎯 Pilih tools network (1-4): {Style.RESET_ALL}")
         
         if choice == "1":
             run_wireshark()
@@ -297,72 +317,78 @@ def sniffing_spoofing_menu():
         elif choice == "4":
             break
         else:
-            print(f"{Fore.RED}[-] Pilihan tidak valid!{Style.RESET_ALL}")
+            print(f"{Fore.RED}❌ Pilihan nggak valid! Coba lagi ya! 😊{Style.RESET_ALL}")
 
 # Fungsi untuk menjalankan Wireshark
 def run_wireshark():
-    if confirm_action("Wireshark akan membuka antarmuka GUI. Lanjutkan?"):
+    if confirm_action("Wireshark bakal buka GUI nih. Lanjut?"):
         try:
-            print(f"{Fore.CYAN}[*] Membuka Wireshark...{Style.RESET_ALL}")
+            print(f"{Fore.CYAN}🦈 Buka Wireshark... Siap-siap analisis packet! 📊{Style.RESET_ALL}")
             subprocess.run("wireshark", shell=True, check=True)
             log_action("Membuka Wireshark", "berhasil")
         except subprocess.CalledProcessError as e:
-            print(f"{Fore.RED}[-] Gagal membuka Wireshark: {str(e)}{Style.RESET_ALL}")
+            print(f"{Fore.RED}❌ Wireshark error: {str(e)} 😢{Style.RESET_ALL}")
             log_action("Membuka Wireshark", f"gagal: {str(e)}")
 
 # Fungsi untuk menjalankan Tcpdump
 def run_tcpdump():
-    interface = input(f"{Fore.YELLOW}[?] Masukkan interface jaringan (kosongkan untuk default): {Style.RESET_ALL}")
-    output_file = input(f"{Fore.YELLOW}[?] Masukkan nama file output (kosongkan untuk tidak menyimpan): {Style.RESET_ALL}")
+    interface = input(f"{Fore.YELLOW}🌐 Masukkin interface jaringan (kosongkan buat default): {Style.RESET_ALL}")
+    output_file = input(f"{Fore.YELLOW}💾 Nama file output (kosongkan kalo nggak mau disimpen): {Style.RESET_ALL}")
     
     if interface:
         base_command = f"tcpdump -i {interface}"
+        print(f"{Fore.GREEN}🌐 Pake interface {interface}! 👍{Style.RESET_ALL}")
     else:
         base_command = "tcpdump"
+        print(f"{Fore.GREEN}🌐 Pake interface default! 👍{Style.RESET_ALL}")
     
     if output_file:
         command = f"{base_command} -w {output_file}"
+        print(f"{Fore.GREEN}💾 Hasil bakal disimpen di {output_file}! 📁{Style.RESET_ALL}")
     else:
         command = base_command
+        print(f"{Fore.GREEN}📺 Output bakal ditampilin di layar aja! 👀{Style.RESET_ALL}")
     
-    if confirm_action(f"Jalankan perintah: {command}?"):
+    if confirm_action(f"Jalanin perintah: {command}?"):
         try:
-            print(f"{Fore.CYAN}[*] Menjalankan Tcpdump...{Style.RESET_ALL}")
-            print(f"{Fore.YELLOW}[!] Tekan Ctrl+C untuk menghentikan{Style.RESET_ALL}")
+            print(f"{Fore.CYAN}📡 Tcpdump mulai capture packet... 🎯{Style.RESET_ALL}")
+            print(f"{Fore.YELLOW}⚠️ Tekan Ctrl+C buat berhenti ya! ⌨️{Style.RESET_ALL}")
             subprocess.run(command, shell=True, check=True)
             log_action("Menjalankan Tcpdump", "berhasil")
         except subprocess.CalledProcessError as e:
-            print(f"{Fore.RED}[-] Gagal menjalankan Tcpdump: {str(e)}{Style.RESET_ALL}")
+            print(f"{Fore.RED}❌ Tcpdump error: {str(e)} 😢{Style.RESET_ALL}")
             log_action("Menjalankan Tcpdump", f"gagal: {str(e)}")
 
 # Fungsi untuk menjalankan Ettercap
 def run_ettercap():
-    target = input(f"{Fore.YELLOW}[?] Masukkan target (format: IP/MASK): {Style.RESET_ALL}")
+    target = input(f"{Fore.YELLOW}🎯 Masukkin target (format: IP/MASK): {Style.RESET_ALL}")
     if not target:
-        print(f"{Fore.RED}[-] Target tidak boleh kosong!{Style.RESET_ALL}")
+        print(f"{Fore.RED}❌ Target jangan kosong ya! 😅{Style.RESET_ALL}")
         return
     
     command = f"ettercap -T -M arp {target}"
     
-    if confirm_action(f"Jalankan perintah: {command}?"):
+    print(f"{Fore.RED}⚠️ PERHATIAN: Ini bakal ngelakuin ARP spoofing! Pastikan kamu punya izin! 🚨{Style.RESET_ALL}")
+    
+    if confirm_action(f"Jalanin perintah: {command}?"):
         try:
-            print(f"{Fore.CYAN}[*] Menjalankan Ettercap...{Style.RESET_ALL}")
-            print(f"{Fore.YELLOW}[!] Tekan 'q' untuk menghentikan{Style.RESET_ALL}")
+            print(f"{Fore.CYAN}🎭 Ettercap mulai ARP spoofing... MITM mode activated! 👤{Style.RESET_ALL}")
+            print(f"{Fore.YELLOW}⚠️ Tekan 'q' buat berhenti ya! ⌨️{Style.RESET_ALL}")
             subprocess.run(command, shell=True, check=True)
             log_action(f"Ettercap ARP spoofing terhadap {target}", "berhasil")
         except subprocess.CalledProcessError as e:
-            print(f"{Fore.RED}[-] Gagal menjalankan Ettercap: {str(e)}{Style.RESET_ALL}")
+            print(f"{Fore.RED}❌ Ettercap error: {str(e)} 😢{Style.RESET_ALL}")
             log_action(f"Ettercap ARP spoofing terhadap {target}", f"gagal: {str(e)}")
 
 # Fungsi untuk menu Vulnerability Scanner
 def vulnerability_scanner_menu():
     while True:
-        print(f"\n{Fore.BLUE}=== VULNERABILITY SCANNER ==={Style.RESET_ALL}")
-        print("1. Sqlmap - SQL Injection Test")
-        print("2. IDOR Checker")
-        print("3. Kembali ke Menu Utama")
+        print(f"\n{Fore.BLUE}🔍 === CARI CELAH KEAMANAN === 🔍{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}💉 1. Sqlmap - SQL Injection Hunter{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}🔓 2. IDOR Checker - Direct Object Reference{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}🔙 3. Balik ke Menu Utama{Style.RESET_ALL}")
         
-        choice = input(f"{Fore.YELLOW}[?] Pilih tool (1-3): {Style.RESET_ALL}")
+        choice = input(f"{Fore.YELLOW}🎯 Pilih scanner (1-3): {Style.RESET_ALL}")
         
         if choice == "1":
             run_sqlmap()
@@ -371,26 +397,29 @@ def vulnerability_scanner_menu():
         elif choice == "3":
             break
         else:
-            print(f"{Fore.RED}[-] Pilihan tidak valid!{Style.RESET_ALL}")
+            print(f"{Fore.RED}❌ Pilihan nggak valid! Coba lagi deh! 😊{Style.RESET_ALL}")
 
 # Fungsi untuk menjalankan Sqlmap
 def run_sqlmap():
-    url = input(f"{Fore.YELLOW}[?] Masukkan URL target (contoh: http://example.com/page?id=1): {Style.RESET_ALL}")
+    url = input(f"{Fore.YELLOW}🌐 Masukkin URL target (contoh: http://example.com/page?id=1): {Style.RESET_ALL}")
     if not url:
-        print(f"{Fore.RED}[-] URL tidak boleh kosong!{Style.RESET_ALL}")
+        print(f"{Fore.RED}❌ URL jangan kosong dong! 😅{Style.RESET_ALL}")
         return
     
-    options = input(f"{Fore.YELLOW}[?] Masukkan opsi tambahan Sqlmap (kosongkan untuk default): {Style.RESET_ALL}")
+    options = input(f"{Fore.YELLOW}⚙️ Opsi tambahan Sqlmap (kosongkan buat default): {Style.RESET_ALL}")
     
     command = f"sqlmap -u {url} {options}"
     
-    if confirm_action(f"Jalankan perintah: {command}?"):
+    print(f"{Fore.RED}⚠️ HATI-HATI: Ini bakal test SQL injection! Pastikan punya izin! 🚨{Style.RESET_ALL}")
+    
+    if confirm_action(f"Jalanin perintah: {command}?"):
         try:
-            print(f"{Fore.CYAN}[*] Menjalankan Sqlmap...{Style.RESET_ALL}")
+            print(f"{Fore.CYAN}💉 Sqlmap lagi hunting SQL injection... Vulnerability hunter mode! 🎯{Style.RESET_ALL}")
             subprocess.run(command, shell=True, check=True)
+            print(f"{Fore.GREEN}✅ Sqlmap udah selesai scan {url}! 🎉{Style.RESET_ALL}")
             log_action(f"Sqlmap scan terhadap {url}", "berhasil")
         except subprocess.CalledProcessError as e:
-            print(f"{Fore.RED}[-] Gagal menjalankan Sqlmap: {str(e)}{Style.RESET_ALL}")
+            print(f"{Fore.RED}❌ Sqlmap error: {str(e)} 😢{Style.RESET_ALL}")
             log_action(f"Sqlmap scan terhadap {url}", f"gagal: {str(e)}")
 
 # Fungsi untuk menjalankan IDOR Checker
